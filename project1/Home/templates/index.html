@@ -23,8 +23,10 @@
  <b>UPDATE : </b> </br>
 NO Need to Refresh the WEB/PBX PAGE </br>
 
-{% if tmp < 30 %}  
+{% if tmp > 30 %}  
 <div style="font-size: 125%" class="ser_nrun">{{ tmp }}  days</div> left to expired this clients.crt certificate
+{% else %}
+<div style="font-size: 125%" class="ser_run">{{ tmp }}  days</div> left to expired this clients.crt certificate
 {% endif %}
 
 {% comment %} <h3>from db to template</h3>
