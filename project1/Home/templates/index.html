@@ -22,6 +22,8 @@
 NO Need to Refresh the WEB/PBX PAGE </br>
 {% if day_left < 30 %}  
 <div style="font-size: 125%" class="ser_nrun">{{ day_left }}  days</div> left to expired this <b>clients.crt</b> certificate
+{% else %}
+<div style="font-size: 125%" class="ser_run">{{ day_left }}  days</div> left to expired this clients.crt certificate
 {% endif %}
 
 </div>
