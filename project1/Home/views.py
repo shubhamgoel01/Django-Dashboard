@@ -70,7 +70,7 @@ def output(request):
 # --------------------------------------New ---------------
 def checkupdate(request):  
     result_httpd = update_httpd("https://httpd.apache.org/download.cgi")
-    result_openssl = update_openssl("https://www.openssl.org/")
+    result_openssl = update_openssl("https://www.openssl.org/source/")
     result_php = update_php("https://www.php.net/downloads.php")
     result_Hadoop = update_Hadoop("https://hadoop.apache.org/release.html")
     result_ZooKeeper = update_ZooKeeper("https://zookeeper.apache.org/releases.html")
@@ -431,9 +431,10 @@ def update_openssl(passing_url):
     resp=requests.get(passing_url)
     if resp.status_code==200:
         soup=BeautifulSoup(resp.text,'html.parser')        
-        l=soup.find("table",{"class":"newsflash"})       
-        m = l.findAll("tr")[5]
-        return(m.text)           
+        l=soup.find("table")
+        m = l.findAll("tr")[2]
+        n = m.findAll("td")[2]
+        return(n.text)           
     else:
         return(resp.status_code) 
           
