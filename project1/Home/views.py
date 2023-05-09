@@ -431,9 +431,9 @@ def update_openssl(passing_url):
     resp=requests.get(passing_url)
     if resp.status_code==200:
         soup=BeautifulSoup(resp.text,'html.parser')        
-        l=soup.find("table")
-        m = l.findAll("tr")[2]
-        n = m.findAll("td")[2]
+        l=soup.find("article")
+        m = l.findAll("table")[1]
+        n = m.findAll("td")[8] 
         return(n.text)           
     else:
         return(resp.status_code) 
